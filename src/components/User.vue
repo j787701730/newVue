@@ -16,20 +16,34 @@
         <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+    <div>{{books}}</div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "User",
-  data() {
-    return {
-      msg: "user",
-      // id: this.$route.params.id
-      id: this.$route.query.a
-    };
-  }
-};
+  export default {
+    name: "User",
+    data() {
+      return {
+        msg: "user",
+        // id: this.$route.params.id
+        id: this.$route.query.a,
+        books: this.$route.meta.books
+      };
+    },
+    computed: {
+      // sum: function () {
+      //   var self = this;
+      //   setInterval(function () {
+      //     self.setData({
+      //       books:self.$route.meta.books
+      //     })
+      //     // console.log();
+      //   },2000)
+      //   // return this.$route.meta.books
+      // }
+    }
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

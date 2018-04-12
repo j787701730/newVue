@@ -26,11 +26,14 @@
 </template>
 
 <script>
-  import jpg1 from "@/assets/1.jpg";
-  import jpg2 from "@/assets/2.jpg";
-  import jpg3 from "@/assets/3.jpg";
-  import jpg4 from "@/assets/4.jpg";
-
+  // import jpg1 from "@/assets/1.jpg";
+  // import jpg2 from "@/assets/2.jpg";
+  // import jpg3 from "@/assets/3.jpg";
+  // import jpg4 from "@/assets/4.jpg";
+var jpg1 = 'https://www.zhengw.top/public/static/images/1.jpg';
+var jpg2 = 'https://www.zhengw.top/public/static/images/2.jpg';
+var jpg3 = 'https://www.zhengw.top/public/static/images/3.jpg';
+var jpg4 = 'https://www.zhengw.top/public/static/images/4.jpg';
   export default {
     name: "Index",
     data() {

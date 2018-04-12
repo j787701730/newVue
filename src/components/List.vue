@@ -1,14 +1,13 @@
 <template>
-  <div class="hello">
+  <div id="content">
     <el-container>
       <el-header>Header</el-header>
       <el-main>
         <router-link to="/">Go to 主页</router-link>
-        <el-row :gutter="20" v-for="(book,index) in books" :key="index">
-          <el-col :span="6">
-            <router-link :to="{path: 'list', query: {id: book.id}}">
-              <div>{{book.name}}</div>
-              <div>{{book.author}}</div>
+        <el-row :gutter="0">
+          <el-col :span="12" v-for="(list,index) in lists" :key="index">
+            <router-link :to="{path: 'content', query: {books_id: id,id:list.id}}">
+              <div>{{list.name}}</div>
             </router-link>
           </el-col>
         </el-row>
@@ -21,23 +20,21 @@
   import axios from "axios";
 
   export default {
-    name: "Books",
+    name: "List",
     data() {
       return {
-        // msg: "Books",
-        // id: this.$route.params.id
-        // id: this.$route.query.a,
-        books: []
+        id: this.$route.query.id,
+        lists: []
       };
     },
     mounted: function () {
       var self = this;
-      // const params = new URLSearchParams();
-      // params.append('id', this.$route.query.id);
+      const params = new URLSearchParams();
+      params.append('id', this.$route.query.id);
       axios
-        .post("https://www.zhengw.top/getBooks")
+        .post("https://www.zhengw.top/getBook ", params)
         .then(function (response) {
-          self.books = response.data;
+          self.lists = response.data.data
         })
         .catch(function (error) {
           console.log(error);
@@ -48,5 +45,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  #content {
+    text-align: left;
+  }
 </style>

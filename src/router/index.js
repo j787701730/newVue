@@ -4,6 +4,8 @@ import Index from '@/components/Index'
 import Books from '@/components/Books'
 import Error from '@/components/Error'
 import Detail from '@/components/detail/Detail'
+import List from '@/components/List'
+import Content from '@/components/Content'
 // import config from '@/config/config'
 
 Vue.use(Router)
@@ -27,8 +29,7 @@ export default new Router({
     name: 'Books',
     component: Books,
     meta: {
-      title: '书籍',
-      books: []
+      title: '书籍'
     },
     beforeEnter: (to, from, next) => {
       // ...
@@ -36,6 +37,28 @@ export default new Router({
       // console.log(config.a)
       // console.log(config.bb)
       // console.log(config.clear(10))
+      document.title = to.meta['title']
+      next()
+    }
+  }, {
+    path: '/list',
+    name: 'List',
+    component: List,
+    meta: {
+      title: '目录'
+    },
+    beforeEnter: (to, from, next) => {
+      document.title = to.meta['title']
+      next()
+    }
+  }, {
+    path: '/content',
+    name: 'Content',
+    component: Content,
+    meta: {
+      title: '内容'
+    },
+    beforeEnter: (to, from, next) => {
       document.title = to.meta['title']
       next()
     }

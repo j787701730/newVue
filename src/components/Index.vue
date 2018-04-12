@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <h2>{{id}}</h2>
     <h2>Essential Links</h2>
-    <router-link to="/user">Go to User</router-link>
+    <router-link to="/books">Go to Books</router-link>
     <el-carousel indicator-position="outside" :interval="4000" type="card" height="300px" trigger="click" :autoplay="autoplay">
       <el-carousel-item v-for="(item,index) in items" :key="index">
         <div class="carousel-pic" :style="item.pic"></div>
@@ -21,7 +21,7 @@ import jpg2 from "@/assets/2.jpg";
 import jpg3 from "@/assets/3.jpg";
 import jpg4 from "@/assets/4.jpg";
 export default {
-  name: "HelloWorld",
+  name: "Index",
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
